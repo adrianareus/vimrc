@@ -1,5 +1,5 @@
 set runtimepath^=~/.vim/bundle/ctrlp.vim
-execute pathogen#infect()
+"execute pathogen#infect()
 syntax on
 filetype plugin indent on
 set number
@@ -11,7 +11,6 @@ set noshowmode
 let g:ctrlp_follow_symlinks=1
 let g:ctrlp_max_files=0
 
-"---------------------------------------------------------------------
 
 " More tabs 
 set tabpagemax=20
@@ -29,6 +28,9 @@ set splitright
 set autowrite
 colorscheme zenburn
 
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+
+set pastetoggle=<F8>
 "set statusline=%<%f\ %y%h%m%r%=%-24.(0x%02B,%l/%L,%c%V%)\ %P
 "set wildmenu
 
@@ -77,3 +79,9 @@ function! Tab_Or_Complete()
 endfunction
 :inoremap <Tab> <C-R>=Tab_Or_Complete()<CR>
 :set dictionary="/usr/dict/words"
+
+
+:nnoremap <S-F8> :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
+:set hlsearch
+:hi Search ctermbg=DarkBlue
+source /home/adriana/cscope_maps.vim
